@@ -1,18 +1,12 @@
-TOKEN = ''
+TOKEN = '5913757254:AAGn9Xd-vebTIF75qXuASBj0trSRk5m2wCI'
 
-from aiogram import Bot, types, utils
-from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 import random
 
-bot = Bot(token=TOKEN)
-dp = Dispatcher(bot)
 
 
 def fact(numb):
     fact = 1
-    if not numb.isinstance(int):
-        return -1
     for i in range(numb + 1):
         fact *= i
     return fact
@@ -26,11 +20,10 @@ async def send_welcome(message: types.Message):
     await message.reply("Привет дорогой\n"
                         "Давно не видел тебя\n"
                         "Наедюсь я смогу тебе помочь. Вот мои команды:\n"
-                        "/football – получить последние новости футбола от разработчика\n"
                         "/song – получить топ-5 песен\n"
                         "/game – получить топ-5 игр\n"
                         "/fact n – вычислить n-й факториал\n"
-                        "/res – узнай результаты надвигающихся экзаменов\n")
+                        "/exams – узнай результаты надвигающихся экзаменов\n")
 
 
 
@@ -84,7 +77,7 @@ async def get_exam_res(message: types.Message):
     results = ['завалил', 'списал', 'ОТЛ', 'НЕУД', 'УД',
             'выгнали за мат в аудитории', 'не пришел']
 
-    res = random.choice(resu)
+    res = random.choice(results)
 
     await message.answer("Твой результат - " + res)
 

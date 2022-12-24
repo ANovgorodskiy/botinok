@@ -1,0 +1,8 @@
+services:
+  pythonapp:
+    build: ./
+    command: python3 ./main.py
+networks:
+  default:
+    name: bridge-nerwork
+    external: true
